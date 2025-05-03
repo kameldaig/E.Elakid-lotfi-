@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتائج الفصل الثاني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Amiri', serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            text-align: center;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(1); opacity: 0.3; }
+            100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .header {
+            font-size: 3rem;
+            color: #f1c40f;
+            text-shadow: 0 0 15px rgba(241, 196, 15, 0.7);
+            margin-top: 20px;
+            opacity: 0;
+            animation: glow 3s forwards;
+        }
+        .image-container {
+            margin: 40px 0;
+            opacity: 0;
+            animation: zoomIn 2s forwards 3s;
+        }
+        .image-container img {
+            max-width: 350px;
+            border-radius: 20px;
+            border: 5px solid #f1c40f;
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+        .image-container img:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 0 30px rgba(241, 196, 15, 0.8);
+        }
+        .intro-paragraph {
+            font-size: 1.8rem;
+            color: #f1c40f;
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 40px 0;
+            min-height: 200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            visibility: visible;
+            transition: transform 0.5s;
+        }
+        .intro-paragraph:hover {
+            transform: translateY(-5px);
+        }
+        .word {
+            opacity: 0;
+            margin: 0 4px;
+            display: inline-block;
+            animation: fadeIn 0.5s forwards;
+            text-shadow: 0 0 15px rgba(241, 196, 15, 0.8);
+        }
+        .section-title {
+            font-size: 3.2rem;
+            color: #e74c3c;
+            text-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
+            margin: 40px 0;
+            opacity: 0;
+            animation: glow 3s forwards;
+        }
+        .class-title {
+            font-size: 2.5rem;
+            color: #3498db;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+            margin: 20px 0;
+            opacity: 0;
+        }
+        .class-title:hover {
+            transform: scale(1.05);
+        }
+        .result-item {
+            font-size: 2rem;
+            color: #fff;
+            background: rgba(52, 152, 219, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            opacity: 0;
+            transition: background 0.5s;
+        }
+        .result-item:hover {
+            background: rgba(52, 152, 219, 0.4);
+        }
+        #results {
+            min-height: 500px;
+            z-index: 1;
+        }
+        .top-ten-title {
+            font-size: 3.2rem;
+            color: #e74c3c;
+            text-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
+            margin: 40px 0;
+            opacity: 0;
+        }
+        .quotes {
+            margin-top: 40px;
+            opacity: 0;
+        }
+        .quote {
+            font-size: 1.8rem;
+            color: #f1c40f;
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            opacity: 0;
+            transition: transform 0.5s;
+        }
+        .quote:hover {
+            transform: translateY(-5px);
+        }
+        .audio-controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+            display: flex;
+            gap: 10px;
+        }
+        .audio-control {
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .programmer-credit {
+            font-size: 2.5rem;
+            color: #f1c40f;
+            text-shadow: 0 0 15px rgba(241, 196, 15, 0.7);
+            margin: 40px 0;
+            opacity: 0;
+            animation: glow 3s forwards;
+        }
+        .search-button {
+            font-size: 1.8rem;
+            color: #fff;
+            background: #3498db;
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        .search-button:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+        .search-container {
+            margin: 20px 0;
+            display: none;
+        }
+        .search-input {
+            font-size: 1.5rem;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin: 10px;
+            width: 300px;
+            font-family: 'Amiri', serif;
+        }
+        .search-result {
+            font-size: 1.8rem;
+            color: #f1c40f;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            display: none;
+        }
+        @keyframes glow {
+            0% { opacity: 0; text-shadow: 0 0 5px rgba(241, 196, 15, 0.3); }
+            50% { opacity: 1; text-shadow: 0 0 20px rgba(241, 196, 15, 0.8); }
+            100% { opacity: 1; text-shadow: 0 0 15px rgba(241, 196, 15, 0.7); }
+        }
+        @keyframes zoomIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    <div class="audio-controls">
+        <div class="audio-control" onclick="playAudio()" style="background: rgba(0, 0, 0, 0.5);">
+            تشغيل الصوت
+        </div>
+        <a href="index.html" class="audio-control" style="background: rgba(255, 69, 0, 0.5); color: white; text-decoration: none;">
+            الرجوع إلى الصفحة الرئيسية
+        </a>
+    </div>
+    <div class="container">
+        </div>
+        <div class="header">
+            مديرية التربية لولاية أولاد جلال<br>مدرسة العقيد لطفي - أولاد جلال -
+        </div>
+        <div class="image-container">
+            <img src="adel.jpg" alt="صورة الاحتفال">
+        </div>
+        <div class="intro-paragraph" id="intro-paragraph"></div>
+        <div class="section-title" id="section-title">
+            النتائج المحصل عليها خلال الفصل الثاني
+        </div>
+        <div id="results"></div>
+        <div id="top-ten-title" class="top-ten-title">
+            أعلى 10 معدلات في المؤسسة في الفصل الثاني
+        </div>
+        <div id="top-ten-results"></div>
+        <div id="quotes" class="quotes">
+            <div class="quote">"لكل مجتهد نصيب، واليوم حان وقت حصادكم الجميل."</div>
+            <div class="quote">"النجاح ليس محطة وصول، بل هو مسيرة مستمرة... فاستمرّوا في التقدم!"</div>
+            <div class="quote">"من لم يتفوق اليوم، قد يتألق غدًا... المثابرة هي سر التفوق الحقيقي."</div>
+            <div class="quote">"الفصل الثاني كان تحديًا، وأنتم أثبتم أنكم أهل للثقة والمسؤولية."</div>
+            <div class="quote">"كل نجاح يبدأ بخطوة... فلا تتوقفوا عن السير نحو أحلامكم."</div>
+            <div class="quote">"النتائج ليست نهاية، بل بداية لمشوار أكبر... القادم أجمل."</div>
+        </div>
+        <div class="programmer-credit" id="programmer-credit">
+            برمجة الأستاذ ديقش كمال
+        </div>
+        <div class="search-button" onclick="toggleSearch()">البحث عن ترتيب تلميذ معين</div>
+        <div class="search-container" id="search-container">
+            <input type="text" class="search-input" id="search-input" placeholder="أدخل اسم التلميذ">
+            <div class="search-result" id="search-result"></div>
+        </div>
+    </div>
+    <audio id="background-audio" loop>
+        <source src="1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Particle effect
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = `${Math.random() * 5 + 2}px`;
+            particle.style.height = particle.style.width;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 15}s`;
+            particlesContainer.appendChild(particle);
+        }
+
+        // Audio control
+        const audio = document.getElementById('background-audio');
+        function playAudio() {
+            audio.play().catch(err => console.log('Audio play failed:', err));
+        }
+
+        // Intro paragraph animation
+        const introText = "في ميدان العلم، لا يُقاس النجاح فقط بالأرقام، بل يُقاس أيضًا بالجهد، والمثابرة، والرغبة الصادقة في التقدّم. في هذا الفصل الثاني، لمع نجمُ من اجتهد، وأثمرت الساعات الطويلة من المذاكرة والتعب. فهنيئًا لكل من ورد اسمه اليوم، فأنتم فخر مدرستكم، وبكم نرتقي. أما من لم يرد اسمه اليوم، فلا تيأسوا، فالفصل القادم فرصة جديدة، وصفحة بيضاء تنتظر أن تُكتب بحروف النجاح. تذكّروا دائمًا: من جدّ وجد، ومن زرع حصد، ومن سار على الدرب وصل.";
+        const introParagraph = document.getElementById('intro-paragraph');
+        const words = introText.split(' ');
+        words.forEach((word, index) => {
+            const span = document.createElement('span');
+            span.className = 'word';
+            span.textContent = word;
+            span.style.animationDelay = `${5 + index * 0.3}s`;
+            introParagraph.appendChild(span);
+            introParagraph.appendChild(document.createTextNode(' '));
+        });
+
+        // Scroll to intro paragraph after image
+        setTimeout(() => {
+            introParagraph.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 5000);
+
+        // Results data
+        const resultsData = [
+            {
+                class: "أولى ابتدائي 1",
+                students: [
+                    { name: "لعواد فاطمة الزهراء", average: 9.47 },
+                    { name: "غيبوب فرح", average: 9.35 },
+                    { name: "لعواد آسيا لجين", average: 9.33 }
+                ]
+            },
+            {
+                class: "أولى ابتدائي 2",
+                students: [
+                    { name: "توبي هاجر", average: 9.69 },
+                    { name: "لعسل شهد", average: 9.69 },
+                    { name: "مرغاد براءة منية الله", average: 9.69 },
+                    { name: "قرمة علياء رودينة", average: 9.44 },
+                    { name: "بصلي غفران", average: 9.42 }
+                ]
+            },
+            {
+                class: "ثانية ابتدائي 1",
+                students: [
+                    { name: "شنيط محمد سراج", average: 9.50 },
+                    { name: "بركة طلال ريان", average: 9.33 },
+                    { name: "قوادرية رؤيا اليقين", average: 9.28 }
+                ]
+            },
+            {
+                class: "ثانية ابتدائي 2",
+                students: [
+                    { name: "شماح زين الدين", average: 9.75 },
+                    { name: "عبد العزيز لجين", average: 9.67 },
+                    { name: "العمري دعاء نور اليقين", average: 9.65 }
+                ]
+            },
+            {
+                class: "ثالثة ابتدائي 1",
+                students: [
+                    { name: "سكر يارا", average: 9.59 },
+                    { name: "بريقلي عبد الرحمان", average: 9.54 },
+                    { name: "كشيدة عبد العزيز", average: 9.47 }
+                ]
+            },
+            {
+                class: "ثالثة ابتدائي 2",
+                students: [
+                    { name: "خضراوي شعيب ياسين", average: 9.65 },
+                    { name: "ضحوي أسيل مسعودة", average: 9.59 },
+                    { name: "شامخ إدريس", average: 9.52 }
+                ]
+            },
+            {
+                class: "ثالثة ابتدائي 3",
+                students: [
+                    { name: "دهان محمد ريان", average: 9.64 },
+                    { name: "طواقة أسيل", average: 9.64 },
+                    { name: "جنيدي غفران", average: 9.54 },
+                    { name: "عشور آدم", average: 9.39 }
+                ]
+            },
+            {
+                class: "رابعة ابتدائي 1",
+                students: [
+                    { name: "دهان عبد الودود", average: 9.45 },
+                    { name: "زنودة سارة", average: 9.30 },
+                    { name: "عزري يعقوب", average: 9.17 }
+                ]
+            },
+            {
+                class: "رابعة ابتدائي 2",
+                students: [
+                    { name: "لقويرح أحمد صهيب", average: 9.76 },
+                    { name: "ضحوي ياسمين", average: 9.45 },
+                    { name: "غيبوب أيوب", average: 9.43 }
+                ]
+            },
+            {
+                class: "خامسة ابتدائي 1",
+                students: [
+                    { name: "طرقي ياسمين", average: 9.67 },
+                    { name: "عمير المعتصم بالله", average: 9.64 },
+                    { name: "شرون ندى", average: 9.61 }
+                ]
+            },
+            {
+                class: "خامسة ابتدائي 2",
+                students: [
+                    { name: "بولنوار بهاء الدين", average: 9.62 },
+                    { name: "زنودة لينا", average: 9.59 },
+                    { name: "خضراوي تسنيم", average: 9.55 }
+                ]
+            }
+        ];
+
+        const topTenData = [
+            { name: "لقويرح أحمد صهيب", average: 9.76, class: "رابعة ابتدائي 2" },
+            { name: "شماح زين الدين", average: 9.75, class: "ثانية ابتدائي 2" },
+            { name: "توبي هاجر", average: 9.69, class: "أولى ابتدائي 2" },
+            { name: "لعسل شهد", average: 9.69, class: "أولى ابتدائي 2" },
+            { name: "مرغاد براءة منية الله", average: 9.69, class: "أولى ابتدائي 2" },
+            { name: "طرقي ياسمين", average: 9.67, class: "خامسة ابتدائي 1" },
+            { name: "عبد العزيز لجين", average: 9.67, class: "ثانية ابتدائي 2" },
+            { name: "خضراوي شعيب ياسين", average: 9.65, class: "ثالثة ابتدائي 2" },
+            { name: "العمري دعاء نور اليقين", average: 9.65, class: "ثانية ابتدائي 2" },
+            { name: "دهان محمد ريان", average: 9.64, class: "ثالثة ابتدائي 3" }
+        ];
+
+        // Display results
+        const resultsContainer = document.getElementById('results');
+        function displayResults() {
+            let delay = words.length * 300 + 6000; // Start after intro paragraph animation
+            const sectionTitle = document.getElementById('section-title');
+            sectionTitle.style.animationDelay = `${delay / 1000}s`;
+
+            delay += 1000;
+
+            for (let classData of resultsData) {
+                const classDiv = document.createElement('div');
+                classDiv.className = 'class-title';
+                classDiv.textContent = classData.class;
+                classDiv.style.animation = `slideIn 0.5s forwards`;
+                classDiv.style.animationDelay = `${delay / 1000}s`;
+                resultsContainer.appendChild(classDiv);
+
+                setTimeout(() => {
+                    classDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, delay + 100);
+
+                delay += 1000;
+
+                for (let student of classData.students) {
+                    const studentDiv = document.createElement('div');
+                    studentDiv.className = 'result-item';
+                    studentDiv.textContent = `${student.name}: ${student.average}`;
+                    studentDiv.style.animation = `slideIn 0.5s forwards`;
+                    studentDiv.style.animationDelay = `${delay / 1000}s`;
+                    resultsContainer.appendChild(studentDiv);
+
+                    setTimeout(() => {
+                        studentDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, delay + 100);
+
+                    delay += 500; // Reduced delay for faster display
+                }
+            }
+
+            // Display top ten
+            setTimeout(() => {
+                const topTenTitle = document.getElementById('top-ten-title');
+                topTenTitle.style.animation = `slideIn 0.5s forwards`;
+                topTenTitle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, delay);
+
+            delay += 1000;
+
+            const topTenContainer = document.getElementById('top-ten-results');
+            topTenData.forEach((student, index) => {
+                const studentDiv = document.createElement('div');
+                studentDiv.className = 'result-item';
+                studentDiv.textContent = `${index + 1}. ${student.name} (${student.class}): ${student.average}`;
+                studentDiv.style.animation = `slideIn 0.5s forwards`;
+                studentDiv.style.animationDelay = `${(delay + index * 500) / 1000}s`;
+                topTenContainer.appendChild(studentDiv);
+
+                setTimeout(() => {
+                    studentDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, delay + index * 500 + 100);
+
+                delay += 500;
+            });
+
+            // Display quotes
+            setTimeout(() => {
+                const quotesContainer = document.getElementById('quotes');
+                quotesContainer.style.animation = `slideIn 0.5s forwards`;
+                quotesContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const quotes = document.querySelectorAll('.quote');
+                quotes.forEach((quote, index) => {
+                    quote.style.animation = `slideIn 0.5s forwards`;
+                    quote.style.animationDelay = `${(delay + index * 500) / 1000}s`;
+
+                    setTimeout(() => {
+                        quote.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, delay + index * 500 + 100);
+                });
+                delay += quotes.length * 500;
+                // Display programmer credit
+                setTimeout(() => {
+                    const programmerCredit = document.getElementById('programmer-credit');
+                    programmerCredit.style.animationDelay = `${delay / 1000}s`;
+                    programmerCredit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, delay + 10000); // 10 seconds after quotes
+            }, delay + 500);
+        }
+
+        // Search functionality
+        function toggleSearch() {
+            const searchContainer = document.getElementById('search-container');
+            searchContainer.style.display = searchContainer.style.display === 'block' ? 'none' : 'block';
+            if (searchContainer.style.display === 'block') {
+                document.getElementById('search-input').focus();
+            }
+        }
+
+        function searchStudent() {
+            const searchInput = document.getElementById('search-input').value.trim();
+            const searchResult = document.getElementById('search-result');
+            searchResult.style.display = 'none';
+
+            if (searchInput) {
+                let found = false;
+                for (let classData of resultsData) {
+                    for (let student of classData.students) {
+                        if (student.name.includes(searchInput)) {
+                            searchResult.textContent = `${student.name}: ${student.average} (${classData.class})`;
+                            searchResult.style.display = 'block';
+                            searchResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found) break;
+                }
+                if (!found) {
+                    searchResult.textContent = 'لم يتم العثور على التلميذ';
+                    searchResult.style.display = 'block';
+                    searchResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        }
+
+        // Event listener for search input
+        document.getElementById('search-input').addEventListener('input', searchStudent);
+
+        // Start audio and results
+        setTimeout(() => {
+            playAudio();
+            displayResults();
+        }, words.length * 300 + 6000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المناسبات</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e0f7fa;
+            color: #333;
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .home-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+        }
+        .home-button:hover {
+            background-color: #005b4f;
+        }
+        h1 {
+            color: #00796b;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+        h2 {
+            color: #d32f2f;
+            margin-top: 20px;
+            font-size: 28px;
+            border-bottom: 2px solid #00796b;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #00796b;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #00796b;
+            color: white;
+        }
+        .next {
+            background-color: #ff5722;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            animation: glow 1.5s infinite;
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px #ffeb3b; }
+            50% { box-shadow: 0 0 20px #ffeb3b; }
+            100% { box-shadow: 0 0 5px #ffeb3b; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button"><i class="fas fa-home"></i> العودة للرئيسية</a>
+    <h1>المناسبات الوطنية والدينية في الجزائر</h1>
+    <div class="event-container">
+        <h2>المناسبات الوطنية</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>الشهر</th>
+                    <th>المناسبة الوطنية</th>
+                    <th>التاريخ الميلادي</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>يناير</td>
+                    <td>رأس السنة الميلادية</td>
+                    <td>1 يناير</td>
+                </tr>
+                <tr>
+                    <td>يناير</td>
+                    <td>رأس السنة الأمازيغية</td>
+                    <td class="next">12 يناير</td>
+                </tr>
+                <tr>
+                    <td>فبراير</td>
+                    <td>يوم الشهيد</td>
+                    <td>18 فبراير</td>
+                </tr>
+                <tr>
+                    <td>فبراير</td>
+                    <td>ذكرى تأميم المحروقات</td>
+                    <td>24 فبراير</td>
+                </tr>
+                <tr>
+                    <td>مارس</td>
+                    <td>يوم النصر</td>
+                    <td>19 مارس</td>
+                </tr>
+                <tr>
+                    <td>أبريل</td>
+                    <td>يوم العلم</td>
+                    <td>16 أبريل</td>
+                </tr>
+                <tr>
+                    <td>مايو</td>
+                    <td>عيد العمال</td>
+                    <td>1 مايو</td>
+                </tr>
+                <tr>
+                    <td>مايو</td>
+                    <td>ذكرى مجازر 8 ماي 1945</td>
+                    <td>8 مايو</td>
+                </tr>
+                <tr>
+                    <td>مايو</td>
+                    <td>يوم الطالب</td>
+                    <td>19 مايو</td>
+                </tr>
+                <tr>
+                    <td>يوليو</td>
+                    <td>عيد الاستقلال والشباب</td>
+                    <td>5 يوليو</td>
+                </tr>
+                <tr>
+                    <td>أغسطس</td>
+                    <td>يوم المجاهد</td>
+                    <td>20 أغسطس</td>
+                </tr>
+                <tr>
+                    <td>نوفمبر</td>
+                    <td>ذكرى اندلاع الثورة التحريرية</td>
+                    <td>1 نوفمبر</td>
+                </tr>
+                <tr>
+                    <td>ديسمبر</td>
+                    <td>ذكرى مظاهرات 11 ديسمبر</td>
+                    <td>11 ديسمبر</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>المناسبات الدينية</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>الشهر الهجري</th>
+                    <th>المناسبة الدينية</th>
+                    <th>التاريخ الميلادي (تقريبي)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>محرم</td>
+                    <td>رأس السنة الهجرية</td>
+                    <td>يتغير سنويًا</td>
+                </tr>
+                <tr>
+                    <td>محرم</td>
+                    <td>يوم عاشوراء</td>
+                    <td>يتغير سنويًا</td>
+                </tr>
+                <tr>
+                    <td>ربيع الأول</td>
+                    <td>المولد النبوي الشريف</td>
+                    <td>يتغير سنويًا</td>
+                </tr>
+                <tr>
+                    <td>رمضان</td>
+                    <td>شهر الصيام</td>
+                    <td>يتغير سنويًا</td>
+                </tr>
+                <tr>
+                    <td>رمضان</td>
+                    <td>ليلة القدر</td>
+                    <td>يتغير سنويًا</td>
+                </tr>
+                <tr>
+                    <td>شوال</td>
+                    <td>عيد الفطر</td>
+                    <td>يتغير سنويًا</td>
+                </tr>
+                <tr>
+                    <td>ذو الحجة</td>
+                    <td>يوم عرفة</td>
+                    <td>يتغير سنويًا</td>
+                </tr>
+                <tr>
+                    <td>ذو الحجة</td>
+                    <td>عيد الأضحى</td>
+                    <td>يتغير سنويًا</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

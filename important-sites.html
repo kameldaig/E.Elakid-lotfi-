@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مواقع هامة</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            background-image: url('images/bg.jpg'); /* تعيين الصورة كخلفية */
+            background-size: cover; /* تغطية الخلفية بالكامل */
+            background-repeat: no-repeat; /* عدم تكرار الخلفية */
+            opacity: 0.9; /* جعل الخلفية شفافة قليلاً */
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #003366;
+        }
+        .important-sites-container {
+            display: flex;
+            flex-direction: column; /* وضع الأزرار عمودياً */
+            align-items: center; /* محاذاة الأزرار في الوسط */
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin: 20px auto;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .button:nth-child(1) {
+            background-color: #3498db; /* لون زر وزارة التربية الوطنية */
+            color: white;
+            border-color: #3498db;
+        }
+        .button:nth-child(2) {
+            background-color: #f1c40f; /* لون زر فضاء الأستاذ */
+            color: white;
+            border-color: #f1c40f;
+        }
+        .button:nth-child(3) {
+            background-color: #2ecc71; /* لون زر فضاء الأولياء */
+            color: white;
+            border-color: #2ecc71;
+        }
+        .button:nth-child(4) {
+            background-color: #9b59b6; /* لون زر مسابقات التوظيف */
+            color: white;
+            border-color: #9b59b6;
+        }
+        .button:nth-child(5) {
+            background-color: #1abc9c; /* لون زر منصة تقييم */
+            color: white;
+            border-color: #1abc9c;
+        }
+        .button:nth-child(6) {
+            background-color: #e74c3c; /* لون زر المعهد الوطني للبحث في التربية */
+            color: white;
+            border-color: #e74c3c;
+        }
+        .button:nth-child(7) {
+            background-color: #16a085; /* لون زر الديوان الوطني للمطبوعات المدرسية */
+            color: white;
+            border-color: #16a085;
+        }
+        .button:nth-child(8) {
+            background-color: #e91e63; /* لون زر الديوان الوطني للتعليم و التكوين عن بعد (وردي) */
+            color: white;
+            border-color: #e91e63;
+        }
+        .button:nth-child(9) {
+            background-color: #2196F3; /* لون زر الديوان الوطني للتعليم و التكوين عن بعد */
+            color: white;
+            border-color: #2196F3;
+        }
+        .button:hover {
+            opacity: 0.8; /* تأثير عند التمرير */
+        }
+        .button i {
+            margin-left: 10px;
+            display: none;
+        }
+        .button:hover i {
+            display: inline;
+        }
+        .home-button {
+            background-color: #e0f7fa;
+            color: #00796b;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px auto;
+            border: 2px solid #00796b;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .home-button i {
+            margin-left: 10px;
+            display: none;
+        }
+        .home-button:hover i {
+            display: inline;
+        }
+        .home-button:hover {
+            background-color: #b2ebf2; /* لون خلفية عند التمرير */
+            color: #004d40; /* لون نص عند التمرير */
+        }
+        .important-sites-page {
+            max-width: 800px; /* تحديد عرض الصفحة */
+            margin: 0 auto; /* محاذاة الصفحة في الوسط */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* خلفية بيضاء شفافة */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="important-sites-page">
+        <a href="index.html" class="home-button">
+            <i class="fas fa-home"></i>
+            العودة للرئيسية
+        </a>
+
+        <div class="important-sites-container">
+            <h1>مواقع هامة</h1>
+            <a href="https://www.education.gov.dz/" target="_blank" class="button" title="https://www.education.gov.dz/">
+                وزارة التربية الوطنية
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="https://ostad.education.gov.dz/auth" target="_blank" class="button" title="https://ostad.education.gov.dz/auth">
+                فضاء الأستاذ
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="https://awlyaa.education.dz/" target="_blank" class="button" title="https://awlyaa.education.dz/">
+                فضاء الأولياء
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="https://concours.onec.dz/" target="_blank" class="button" title="https://concours.onec.dz/">
+                مسابقات التوظيف
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="https://taqiim.education.dz/" target="_blank" class="button" title="https://taqiim.education.dz/">
+                منصة تقييم
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="https://www.inre.dz/" target="_blank" class="button" title="https://www.inre.dz/">
+                المعهد الوطني للبحث في التربية (INRE)
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="https://www.onps.dz/" target="_blank" class="button" title="https://www.onps.dz/">
+                الديوان الوطني للمطبوعات المدرسية (ONPS)
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="https://www.onefd.edu.dz/" target="_blank" class="button" title="https://www.onefd.edu.dz/">
+                الديوان الوطني للتعليم و التكوين عن بعد (ONEFD)
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

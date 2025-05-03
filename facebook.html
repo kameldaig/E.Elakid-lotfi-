@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة فيسبوك المدرسة - ابتدائية العقيد لطفي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="facebook-page">
+        <a href="index.html" class="home-button">
+            <i class="fas fa-home"></i>
+            العودة للرئيسية
+        </a>
+
+        <div class="facebook-container">
+            <div class="islamic-frame">
+                <div class="islamic-pattern top-left"></div>
+                <div class="islamic-pattern top-right"></div>
+                <div class="islamic-pattern bottom-left"></div>
+                <div class="islamic-pattern bottom-right"></div>
+                
+                <h1 class="islamic-title">
+                    <i class="fab fa-facebook animated-icon"></i>
+                    صفحة فيسبوك المدرسة
+                </h1>
+
+                <div class="facebook-links">
+                    <div class="facebook-link-card" data-url="https://www.facebook.com/groups/ALGouleddjellal" data-message="ossra-message">
+                        <img src="images/ossra.jpg" alt="أسرة المدرسة" class="facebook-image">
+                        <div class="message-overlay" id="ossra-message">جاري الانتقال إلى صفحة الفيسبوك</div>
+                    </div>
+
+                    <div class="facebook-link-card" data-url="https://www.facebook.com/elakid.ecole.3" data-message="al-message">
+                        <img src="images/al.jpg" alt="صفحة المدرسة" class="facebook-image">
+                        <div class="message-overlay" id="al-message">جاري الانتقال إلى صفحة الفيسبوك</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleClick(url, messageId) {
+            const message = document.getElementById(messageId);
+            // إظهار الرسالة
+            message.style.opacity = '1';
+            message.style.transform = 'translateY(0)';
+            
+            // الانتظار 4 ثواني ثم الانتقال
+            setTimeout(() => {
+                window.open(url, '_blank');
+                // إخفاء الرسالة بعد الانتقال
+                setTimeout(() => {
+                    message.style.opacity = '0';
+                    message.style.transform = 'translateY(100%)';
+                }, 500);
+            }, 4000);
+        }
+
+        // إضافة مستمعي الأحداث لكل البطاقات
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.facebook-link-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const url = this.getAttribute('data-url');
+                    const messageId = this.getAttribute('data-message');
+                    if (url && messageId) {
+                        handleClick(url, messageId);
+                    }
+                });
+            });
+
+            // تأثير حركي للأيقونة
+            const icon = document.querySelector('.animated-icon');
+            setInterval(() => {
+                icon.classList.add('pulse');
+                setTimeout(() => {
+                    icon.classList.remove('pulse');
+                }, 1000);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

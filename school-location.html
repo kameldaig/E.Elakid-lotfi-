@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع المدرسة</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-image: url('images/earth-background.jpg'); /* تأكد من وجود صورة مناسبة */
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #003366;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .coordinates {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #00f;
+            background-color: rgba(224, 247, 250, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            margin: 20px 0;
+        }
+        .image-container img {
+            width: 300px;
+            height: 250px; /* زيادة الارتفاع */
+            border: 3px solid #003366;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            animation: move 3s infinite alternate; /* إضافة حركة */
+        }
+        @keyframes move {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        .icon {
+            font-size: 24px;
+            margin: 10px;
+            color: #003366;
+        }
+        .islamic-edu-page {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .islamic-edu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .islamic-frame {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .islamic-pattern {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-size: 20px 20px;
+        }
+        .top-left {
+            top: 0;
+            left: 0;
+            background-image: url('images/top-left-pattern.png');
+        }
+        .top-right {
+            top: 0;
+            right: 0;
+            background-image: url('images/top-right-pattern.png');
+        }
+        .bottom-left {
+            bottom: 0;
+            left: 0;
+            background-image: url('images/bottom-left-pattern.png');
+        }
+        .bottom-right {
+            bottom: 0;
+            right: 0;
+            background-image: url('images/bottom-right-pattern.png');
+        }
+        .islamic-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .home-button i {
+            margin-right: 10px;
+        }
+        .location-icon {
+            width: 50px;
+            height: auto;
+            animation: shake 2s infinite;
+            background-color: white; /* إضافة خلفية بيضاء */
+            padding: 5px; /* إضافة حشوة حول الصورة */
+            border-radius: 10px; /* جعل الزوايا مستديرة */
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-5px); }
+            40% { transform: translateX(5px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="islamic-edu-page">
+        <a href="index.html" class="home-button">
+            <i class="fas fa-home"></i>
+            العودة للرئيسية
+        </a>
+        <div class="islamic-edu-container">
+            <div class="islamic-frame">
+                <div class="islamic-pattern top-left"></div>
+                <div class="islamic-pattern top-right"></div>
+                <div class="islamic-pattern bottom-left"></div>
+                <div class="islamic-pattern bottom-right"></div>
+                <h1 class="islamic-title">موقع ابتدائية العقيد لطفي بالنسبة لمدينة أولاد جلال</h1>
+                <div class="image-container">
+                    <img src="images/ALP.jpg" alt="ALP Image" onerror="this.style.display='none'; alert('صورة ALP غير موجودة!');" style="height: 200px;">
+                    <img src="images/ALP2.jpg" alt="ALP2 Image" onerror="this.style.display='none'; alert('صورة ALP2 غير موجودة!');" style="height: 200px;">
+                </div>
+                <div class="coordinates">
+                    <p style="color: #00f;">34.42872126054559, 5.0517271010226805</p>
+                </div>
+                <h2>موقع المدرسة</h2>
+                <a href="https://www.google.com/maps/place/%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7%D8%A6%D9%8A%D8%A9+%D8%A7%D9%84%D8%B9%D9%82%D9%8A%D8%AF+%D9%84%D8%B7%D9%81%D9%8A%E2%80%AD/@34.4286482,5.0504369,18z/data=!3m1!4b1!4m6!3m5!1s0x128aab006f8317cd:0x75a29373353fba68!8m2!3d34.4286482!4d5.0517244!16s%2Fg%2F11lm_mdxwn?entry=ttu&g_ep=EgoyMDI1MDEwNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="icon">
+                    <i class="fas fa-map-marker-alt"></i> <i class="fas fa-location-arrow"></i> <i class="fas fa-map"></i> رابط الموقع على خرائط جوجل
+                </a>
+                <img src="images/p.png" alt="Location Icon" class="location-icon">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

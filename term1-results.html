@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتائج الفصل الأول - ابتدائية العقيد لطفي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .image-strip {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* عرض صورتين في كل صف */
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 600px; /* ضبط العرض ليشمل الصور الأربعة بشكل مناسب */
+            padding: 10px;
+        }
+        .image-frame {
+            border: 5px solid transparent;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 87, 51, 0.5);
+            animation: glow-border 1.5s infinite alternate;
+            overflow: hidden;
+            position: relative;
+            height: 200px; /* ارتفاع الإطار */
+        }
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .image-frame img.active {
+            opacity: 1;
+        }
+        @keyframes glow-border {
+            from { border-color: rgba(255, 87, 51, 0.5); }
+            to { border-color: rgba(255, 87, 51, 1); }
+        }
+        @keyframes glow {
+            0% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+            100% { filter: brightness(1); }
+        }
+        @keyframes shake {
+            0% { transform: translate(0); }
+            25% { transform: translate(-5px, 0); }
+            50% { transform: translate(5px, 0); }
+            75% { transform: translate(-5px, 0); }
+            100% { transform: translate(0); }
+        }
+        .academic-year {
+            text-align: center;
+            color: #FF5733; /* لون النص */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* تأثير الظل */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="results-page">
+        <a href="index.html" class="home-button">
+            <i class="fas fa-home"></i>
+            العودة للرئيسية
+        </a>
+
+        <div class="results-container">
+            <div class="islamic-frame">
+                <div class="islamic-pattern top-left"></div>
+                <h1>نتائج الفصل الأول</h1>
+                <div class="academic-year">
+                    <h2>العام الدراسي 2025/2024</h2>
+                </div>
+                <div class="islamic-pattern top-right"></div>
+                <div class="islamic-pattern bottom-left"></div>
+                <div class="islamic-pattern bottom-right"></div>
+                
+                <button id="play-sound" style="background-color: transparent; border: none; cursor: pointer; position: fixed; top: 10px; left: 10px; z-index: 1000;">
+                    <i class="fas fa-volume-up" style="font-size: 24px; color: #FF5733;"></i>
+                </button>
+                <audio id="audio" style="display: none;">
+                    <source src="images/mix.mp3" type="audio/mpeg">
+                    Your browser does not support the audio tag.
+                </audio>
+                <script>
+                    var audio = document.getElementById('audio');
+                    var isPlaying = false;
+                    document.getElementById('play-sound').onclick = function() {
+                        if (isPlaying) {
+                            audio.pause();
+                            audio.currentTime = 0; // إعادة تعيين الصوت عند الإيقاف
+                        } else {
+                            audio.play();
+                        }
+                        isPlaying = !isPlaying;
+                    };
+                </script>
+
+                <div class="image-strip">
+                    <div class="image-frame" style="border-color: #FFC107;">
+                        <img src="images/t3.jpg" class="active" alt="صورة تعليمية 3">
+                    </div>
+                    <div class="image-frame" style="border-color: #8BC34A;">
+                        <img src="images/t4.jpg" alt="صورة تعليمية 4">
+                    </div>
+                    <div class="image-frame" style="border-color: #03A9F4;">
+                        <img src="images/t5.jpg" alt="صورة تعليمية 5">
+                    </div>
+                    <div class="image-frame" style="border-color: #FF5733;">
+                        <img src="images/t6.jpg" alt="صورة تعليمية 6">
+                    </div>
+                </div>
+
+                <script>
+                    let currentIndex = 0;
+                    const frames = document.querySelectorAll('.image-frame img');
+                    setInterval(() => {
+                        frames[currentIndex].classList.remove('active');
+                        currentIndex = (currentIndex + 1) % frames.length;
+                        frames[currentIndex].classList.add('active');
+                    }, 3000);
+                </script>
+
+                <div class="results-grid">
+                    <div class="class-results">
+                        <h2>قسم ثانية 1</h2>
+                        <ul>
+                            <li class="top-score"><span class="student-name">شنيط محمد سراج</span> <span class="score">9.58</span></li>
+                            <li><span class="student-name">العمري عبد الرؤوف</span> <span class="score">9.50</span></li>
+                            <li><span class="student-name">بديرينة لينا لجين</span> <span class="score">9.42</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="class-results">
+                        <h2>قسم ثانية 2</h2>
+                        <ul>
+                            <li class="top-score"><span class="student-name">شماح زين الدين</span> <span class="score">9.70</span></li>
+                            <li><span class="student-name">العمري دعاء نور اليقين</span> <span class="score">9.66</span></li>
+                            <li><span class="student-name">زطيطو زينب</span> <span class="score">9.63</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="class-results">
+                        <h2>قسم ثالثة 1</h2>
+                        <ul>
+                            <li class="top-score"><span class="student-name">سكر يارا</span> <span class="score">9.85</span></li>
+                            <li><span class="student-name">رحمان آية الرحمان</span> <span class="score">9.79</span></li>
+                            <li><span class="student-name">سنوسي عبد الصمد</span> <span class="score">9.60</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="class-results">
+                        <h2>قسم ثالثة 2</h2>
+                        <ul>
+                            <li class="top-score"><span class="student-name">محياوي إياد</span> <span class="score">9.83</span></li>
+                            <li><span class="student-name">لقويرح محمد البشير</span> <span class="score">9.78</span></li>
+                            <li><span class="student-name">كاسوسي حسين</span> <span class="score">9.75</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="class-results">
+                        <h2>قسم ثالثة 3</h2>
+                        <ul>
+                            <li class="top-score"><span class="student-name">جنيدي غفران</span> <span class="score">9.79</span></li>
+                            <li><span class="student-name">دهان محمد ريان</span> <span class="score">9.77</span></li>
+                            <li><span class="student-name">طواقة أسيل</span> <span class="score">9.59</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="class-results">
+                        <h2>قسم رابعة 1</h2>
+                        <ul>
+                            <li class="top-score">
+                                <span class="student-name">دهان عبد الودود</span>
+                                <span class="score">9.53</span>
+                            </li>
+                            <li class="top-score">
+                                <span class="student-name">زنودة سارة</span>
+                                <span class="score">9.53</span>
+                            </li>
+                            <li>
+                                <span class="student-name">طرقي عبد الرحمان</span>
+                                <span class="score">9.51</span>
+                            </li>
+                            <li>
+                                <span class="student-name">عزري يعقوب</span>
+                                <span class="score">9.33</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="class-results">
+                        <h2>قسم رابعة 2</h2>
+                        <ul>
+                            <li class="top-score"><span class="student-name">لقويرح أحمد صهيب</span> <span class="score">9.77</span></li>
+                            <li><span class="student-name">كرفة عبد الرحمان</span> <span class="score">9.50</span></li>
+                            <li><span class="student-name">مرغاد رتاج</span> <span class="score">9.47</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="class-results">
+                        <h2>قسم خامسة 1</h2>
+                        <ul>
+                            <li class="top-score"><span class="student-name">زنودة رميصاء خديجة</span> <span class="score">9.61</span></li>
+                            <li class="top-score"><span class="student-name">شرون ندى</span> <span class="score">9.60</span></li>
+                            <li class="top-score"><span class="student-name">طرقي ياسمين</span> <span class="score">9.60</span></li>
+                            <li><span class="student-name">عمير المعتصم بالله</span> <span class="score">9.52</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="class-results">
+                        <h2>قسم خامسة 2</h2>
+                        <ul>
+                            <li class="top-score"><span class="student-name">خضراوي تسنيم</span> <span class="score">9.25</span></li>
+                            <li><span class="student-name">شماح ميار</span> <span class="score">9.24</span></li>
+                            <li><span class="student-name">بريقلي ساجدة</span> <span class="score">9.20</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
