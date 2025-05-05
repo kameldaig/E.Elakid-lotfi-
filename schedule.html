@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزنامة تقييم المكتسبات</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://example.com/background-image.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .schedule-page {
+            position: relative;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.8);
+            min-height: 100vh;
+        }
+        .home-button, .back-button {
+            background-color: #337ab7;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            display: inline-block;
+        }
+        .back-button {
+            background-color: #e74c3c;
+        }
+        .home-button:hover, .back-button:hover {
+            opacity: 0.9;
+        }
+        .schedule-container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            animation: slideDown 1s ease-out;
+        }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .schedule-title {
+            text-align: center;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        .schedule-title h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        .schedule-title h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin: 10px 0 0;
+        }
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .schedule-table th, .schedule-table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+        .schedule-table th {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        .schedule-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .schedule-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        .schedule-notes {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+        }
+        .schedule-notes h3 {
+            color: #e74c3c;
+            margin-top: 0;
+        }
+        .schedule-notes ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .schedule-notes li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .schedule-notes li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="schedule-page">
+        <div class="buttons-container">
+            <a href="index.html" class="home-button">
+                <i class="fas fa-home"></i>
+                الصفحة الرئيسية
+            </a>
+            <a href="evaluation.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                الرجوع
+            </a>
+        </div>
+
+        <div class="schedule-container">
+            <div class="schedule-title">
+                <h1>رزنامة التقييمات الكتابية</h1>
+                <h2>امتحان تقييم المكتسبات مرحلة التعليم الابتدائي</h2>
+                <h3>الموسم الدراسي 2026/2025</h3>
+            </div>
+
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>رقم</th>
+                        <th>الموضوع</th>
+                        <th>التقييم</th>
+                        <th>المدة</th>
+                        <th>المستوى</th>
+                        <th>تاريخ الإجراء</th>
+                        <th>التوقيت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>اللغة العربية</td>
+                        <td>فهم المكتوب</td>
+                        <td>45 د</td>
+                        <td>س5+س4</td>
+                        <td>2025/05/11 الأحد صباحا</td>
+                        <td>08:00 - 08:45</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>اللغة العربية</td>
+                        <td>الإنتاج الكتابي</td>
+                        <td>45 د</td>
+                        <td>س5+س4</td>
+                        <td>2025/05/11 الأحد صباحا</td>
+                        <td>09:00 - 09:45</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>التربية الإسلامية</td>
+                        <td>التربية الإسلامية</td>
+                        <td>45 د</td>
+                        <td>س5</td>
+                        <td>2025/05/11 الأحد مساءً</td>
+                        <td>13:00 - 13:45</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>التاريخ</td>
+                        <td>التاريخ</td>
+                        <td>45 د</td>
+                        <td>س5</td>
+                        <td>2025/05/11 الأحد مساءً</td>
+                        <td>14:00 - 14:45</td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td>الرياضيات</td>
+                        <td>الرياضيات</td>
+                        <td>1س و30د</td>
+                        <td>س5+س4</td>
+                        <td>2025/05/12 الاثنين صباحا</td>
+                        <td>08:00 - 09:30</td>
+                    </tr>
+                    <tr>
+                        <td>05</td>
+                        <td>اللغة الفرنسية</td>
+                        <td>فهم المكتوب</td>
+                        <td>45 د</td>
+                        <td>س5</td>
+                        <td>2025/05/12 الاثنين مساءً</td>
+                        <td>13:00 - 13:45</td>
+                    </tr>
+                    <tr>
+                        <td>05</td>
+                        <td>اللغة الفرنسية</td>
+                        <td>الإنتاج الكتابي</td>
+                        <td>45 د</td>
+                        <td>س5</td>
+                        <td>2025/05/12 الاثنين مساءً</td>
+                        <td>14:00 - 14:45</td>
+                    </tr>
+                    <tr>
+                        <td>06</td>
+                        <td>اللغة الإنجليزية</td>
+                        <td>فهم المكتوب</td>
+                        <td>45 د</td>
+                        <td>س5</td>
+                        <td>2025/05/13 الثلاثاء صباحا</td>
+                        <td>08:00 - 08:45</td>
+                    </tr>
+                    <tr>
+                        <td>06</td>
+                        <td>اللغة الإنجليزية</td>
+                        <td>الإنتاج الكتابي</td>
+                        <td>45 د</td>
+                        <td>س5</td>
+                        <td>2025/05/13 الثلاثاء صباحا</td>
+                        <td>09:00 - 09:45</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="schedule-notes">
+                <h3>ملاحظة:</h3>
+                <ul>
+                    <li>التقييمات الكتابية للسنة الثانية في اللغة العربية - فهم المكتوب - يوم 2025/05/11 بداية من الساعة 08:00 صباحا</li>
+                    <li>التقييمات الكتابية للسنة الثانية في الرياضيات يوم 2025/05/12 بداية من الساعة 08:00 صباحا</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            جميع الحقوق محفوظة 2025 - ابتدائية العقيد لطفي أولاد جلال
+        </div>
+    </div>
+</body>
+</html>
