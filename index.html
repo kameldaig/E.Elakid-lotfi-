@@ -143,6 +143,8 @@
             overflow: hidden;
             position: relative;
             height: 40px;
+            display: flex;
+            align-items: center;
         }
         
         .ticker-content {
@@ -150,15 +152,19 @@
             white-space: nowrap;
             position: absolute;
             right: 100%;
-            animation: ticker 30s linear infinite;
+            animation: ticker 300s linear infinite;
+            line-height: 1.5;
+            font-size: 1rem;
         }
         
         .news-item {
-            margin-right: 50px;
+            margin-right: 20px;
             display: inline-block;
             color: white !important;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+        }    font-size: 1.1rem;
             line-height: 1.5;
         }
         
@@ -183,6 +189,11 @@
             100% {
                 right: -100%;
             }
+        }
+        
+        /* تعديل سرعة التمرير */
+        .ticker-content {
+            animation: ticker 60s linear infinite; /* زيادة المدة من 30 إلى 60 ثانية */
         }
         
         .special-announcement {
@@ -448,10 +459,11 @@
 
     <div class="news-ticker" id="ticker">
         <div class="ticker-content" id="ticker-content">
-            <span class="news-item"><i class="fas fa-bell"></i> بخصوص انطلاق عملية #تسجيل تلاميذ السنة #الأولى_الابتدائية للموسم الدراسي : 2025/2026</span>
+            <span class="news-item"><i class="fas fa-bell"></i> تقديم اختبارات الفصل الثالث بالنسبة لكل سنوات الابتدائي (18ماي - 22 ماي) حسب المراسلة رقم 115/و.ت.و/م.ع.ت/2025</span>
+            <span class="news-item"><i class="fas fa-bell"></i> انطلاق امتحان تقييم المكتسبات للسنوات الثانية - الرابعة - الخامسة الابتدائية يوم الأحد 11 ماي 2025 <a href="evaluation.html" style="color: #ffd700; text-decoration: underline;">الرزنامة المفصلة</a></span>
             <span class="news-item"><i class="fas fa-calendar"></i> بداية التسجيلات عبر <a href="https://awlyaa.education.gov.dz" target="_blank">فضاء الأولياء</a> من 4 ماي إلى 31 ماي</span>
             <span class="news-item"><i class="fas fa-star"></i> المعنيون بالتسجيل هم مواليد 1 جانفي إلى 31 ديسمبر 2019</span>
-            <span class="news-item"><i class="fas fa-info-circle"></i> المسجلون في التحضيري غير معنيين بعملية التسجيل 2025/2026</span>
+            <span class="news-item"><i class="fas fa-info-circle"></i> المسجلون في التحضيري غير معنيين بعملية التسجيل</span>
         </div>
     </div>
 
