@@ -10,6 +10,59 @@
         :root {
             --primary-color: #1a237e;
         }
+
+        .custom-top-bar {
+            background-color: #2ecc71;
+            padding: 10px 0;
+            margin-bottom: 10px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .custom-top-bar a {
+            color: white !important;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .custom-top-bar a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            text-decoration: none !important;
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        }
+
+        .custom-top-bar i {
+            color: white;
+            animation: spin 2s linear infinite;
+        }
+
+        .exam-link {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            padding: 8px 20px !important;
+            border-radius: 25px !important;
+            box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #2ecc71, 0 0 20px #2ecc71, 0 0 30px #2ecc71; }
+            50% { box-shadow: 0 0 20px #2ecc71, 0 0 40px #2ecc71, 0 0 60px #2ecc71; }
+            100% { box-shadow: 0 0 10px #2ecc71, 0 0 20px #2ecc71, 0 0 30px #2ecc71; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         
         @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
         
@@ -32,10 +85,24 @@
         }
         
         .content-section {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 245, 0.95) 100%);
             padding: 3rem;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 68, 68, 0.1);
+        }
+        
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 68, 68, 0.05) 0%, rgba(255, 68, 68, 0.1) 100%);
+            z-index: 0;
         }
         
         .content-section h2 {
@@ -45,6 +112,22 @@
             text-align: center;
             position: relative;
             padding-right: 50px;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-section p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 68, 68, 0.1);
         }
         
         .school-logo {
@@ -152,20 +235,24 @@
             white-space: nowrap;
             position: absolute;
             right: 100%;
-            animation: ticker 300s linear infinite;
+            animation: ticker 45s linear infinite;
             line-height: 1.5;
             font-size: 1rem;
+            padding: 0 20px;
+            min-width: 100%;
         }
         
         .news-item {
             margin-right: 20px;
             display: inline-block;
-            color: white !important;
+            color: #1a237e !important;
             font-weight: bold;
             font-size: 1rem;
             line-height: 1.5;
-        }    font-size: 1.1rem;
-            line-height: 1.5;
+            background: rgba(139, 195, 74, 0.2);
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: relative;
         }
         
         .news-item i {
@@ -191,9 +278,41 @@
             }
         }
         
-        /* تعديل سرعة التمرير */
-        .ticker-content {
-            animation: ticker 60s linear infinite; /* زيادة المدة من 30 إلى 60 ثانية */
+        .news-item {
+            display: inline-flex;
+            align-items: center;
+            color: white !important;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1.5;
+            padding: 0 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            min-width: 200px;
+        }
+        
+        .news-item i {
+            margin-right: 10px;
+            color: #ffd700;
+        }
+        
+        .news-item a {
+            color: #ffd700 !important;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+        
+        @keyframes ticker {
+            0% {
+                right: 100%;
+            }
+            100% {
+                right: -100%;
+            }
         }
         
         .special-announcement {
@@ -245,9 +364,9 @@
                             الإدارة
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="under-construction.html">فريق الإدارة</a></li>
+                            <li><a class="dropdown-item" href="madira.html">فريق الإدارة</a></li>
                             <li><a class="dropdown-item" href="school-location.html">موقع المدرسة</a></li>
-                            <li><a class="dropdown-item" href="important-sites.html">مواقع هامة</a></li>
+                            <li><a class="dropdown-item" href="important-sites.html">المواقع المهمة</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -384,6 +503,23 @@
                             <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="12" aria-label="Slide 13"></button>
                             <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="13" aria-label="Slide 14"></button>
                             <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="14" aria-label="Slide 15"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="15" aria-label="Slide 16"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="16" aria-label="Slide 17"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="17" aria-label="Slide 18"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="18" aria-label="Slide 19"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="19" aria-label="Slide 20"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="20" aria-label="Slide 21"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="21" aria-label="Slide 22"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="22" aria-label="Slide 23"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="23" aria-label="Slide 24"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="24" aria-label="Slide 25"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="25" aria-label="Slide 26"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="26" aria-label="Slide 27"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="27" aria-label="Slide 28"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="28" aria-label="Slide 29"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="29" aria-label="Slide 30"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="30" aria-label="Slide 31"></button>
+                            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="31" aria-label="Slide 32"></button>
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -431,6 +567,66 @@
                             <div class="carousel-item">
                                 <img src="images/15.jpg" class="d-block w-100" alt="صورة 15">
                             </div>
+                            <div class="carousel-item">
+                                <img src="images/21.jpg" class="d-block w-100" alt="صورة 21">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/22.jpg" class="d-block w-100" alt="صورة 22">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/23.jpg" class="d-block w-100" alt="صورة 23">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/24.jpg" class="d-block w-100" alt="صورة 24">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/25.jpg" class="d-block w-100" alt="صورة 25">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/26.jpg" class="d-block w-100" alt="صورة 26">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/27.jpg" class="d-block w-100" alt="صورة 27">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/28.jpg" class="d-block w-100" alt="صورة 28">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/29.jpg" class="d-block w-100" alt="صورة 29">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/30.jpg" class="d-block w-100" alt="صورة 30">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/31.jpg" class="d-block w-100" alt="صورة 31">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/32.jpg" class="d-block w-100" alt="صورة 32">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/33.jpg" class="d-block w-100" alt="صورة 33">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/34.jpg" class="d-block w-100" alt="صورة 34">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/35.jpg" class="d-block w-100" alt="صورة 35">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/36.jpg" class="d-block w-100" alt="صورة 36">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/37.jpg" class="d-block w-100" alt="صورة 37">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/38.jpg" class="d-block w-100" alt="صورة 38">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/39.jpg" class="d-block w-100" alt="صورة 39">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/40.jpg" class="d-block w-100" alt="صورة 40">
+                            </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -456,15 +652,40 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <div class="news-ticker" id="ticker">
         <div class="ticker-content" id="ticker-content">
-            <span class="news-item"><i class="fas fa-bell"></i> تقديم اختبارات الفصل الثالث بالنسبة لكل سنوات الابتدائي (18ماي - 22 ماي) حسب المراسلة رقم 115/و.ت.و/م.ع.ت/2025</span>
-            <span class="news-item"><i class="fas fa-bell"></i> انطلاق امتحان تقييم المكتسبات للسنوات الثانية - الرابعة - الخامسة الابتدائية يوم الأحد 11 ماي 2025 <a href="evaluation.html" style="color: #ffd700; text-decoration: underline;">الرزنامة المفصلة</a></span>
-            <span class="news-item"><i class="fas fa-calendar"></i> بداية التسجيلات عبر <a href="https://awlyaa.education.gov.dz" target="_blank">فضاء الأولياء</a> من 4 ماي إلى 31 ماي</span>
+            <span class="news-item"><i class="fas fa-newspaper"></i> يمكنكم الإطلاع على عددي مجلة المدرسة من خلال الرابط التالي: <a href="school-magazine.html" style="color: #ffd700;">مجلة المدرسة</a></span>
+            <span class="news-item"><i class="fas fa-bell"></i> <a href="cal.html" style="color: #ffd700; text-decoration: underline;">الرزنامة المفصلة</a> لامتحانات تقييم مكتسبات مرحلة التعليم الابتدائي 2024/2025</span>
+            <span class="news-item"><i class="fas fa-calendar"></i> بداية <a href="https://www.facebook.com/watch/?v=1217807660136512&rdid=wMQ1Z6OURiAS0AC3" style="color: #ffd700; text-decoration: underline;">تسجيلات</a> تلاميذ السنة الأولى ابتدائي  عبر <a href="https://awlyaa.education.gov.dz" target="_blank">فضاء الأولياء</a> من 4 ماي إلى 31 ماي</span>
             <span class="news-item"><i class="fas fa-star"></i> المعنيون بالتسجيل هم مواليد 1 جانفي إلى 31 ديسمبر 2019</span>
-            <span class="news-item"><i class="fas fa-info-circle"></i> المسجلون في التحضيري غير معنيين بعملية التسجيل</span>
+       </div>
+    </div>
+
+    <!-- الشريط الأخضر السفلي -->
+    <div class="custom-top-bar mb-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-end">
+                    <a href="exam-schedule.html" class="text-white text-decoration-none custom-link me-3 exam-link">
+                        <i class="fas fa-file-alt me-2"></i>جدول اختبارات الفصل الثالث
+                    </a>
+                    <a href="assessment-models.html" class="text-white text-decoration-none custom-link me-3">
+                        <i class="fas fa-file-contract me-2"></i>نماذج تقييم المكتسبات
+                    </a>
+                    <a href="https://www.education.gov.dz/wp-content/uploads/2025/04/%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86-%D8%A7%D9%84%D8%AA%D9%88%D8%AC%D9%8A%D9%87%D9%8A-%D9%84%D9%84%D8%AA%D8%B1%D8%A8%D9%8A%D8%A9-%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A%D8%A9.pdf" 
+                         target="_blank" 
+                         class="text-white text-decoration-none custom-link me-3">
+                        <i class="fas fa-file-pdf me-2"></i>القانون التوجيهي للتربية الوطنية
+                    </a>
+                    <a href="https://www.education.gov.dz/%d9%86%d8%b5%d9%88%d8%b5-%d9%88-%d9%85%d9%86%d8%a7%d8%b4%d9%8a%d8%b1/%d8%a7%d9%84%d9%86%d8%b4%d8%b1%d8%a9-2/" 
+                         target="_blank" 
+                         class="text-white text-decoration-none custom-link">
+                        <i class="fas fa-newspaper me-2"></i>النشرة الرسمية لوزارة التربية الوطنية
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -478,12 +699,64 @@
                 interval: 3000,
                 wrap: true
             });
+
+            // تأثيرات بسيطة للمجلة
+            const magazineLinks = document.querySelectorAll('.magazine-link');
+            let currentOpacity = 0.7;
+
+
+
+            // تأثير عند التحويم
+            magazineLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    link.querySelector('img').style.opacity = 1;
+            });
+        }, 2000); // كل 2 ثواني
+
+        // تأثير عند التحويم
+        magazineLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.querySelector('img').style.opacity = 1;
+                link.querySelector('img').style.transform = 'scale(1.05)';
+            });
+            link.addEventListener('mouseleave', () => {
+                link.querySelector('img').style.opacity = 0.7;
+                link.querySelector('img').style.transform = 'scale(1)';
+            });
         });
-    </script>
-    <audio id="background-audio" autoplay loop>
-        <source src="rel.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
+        const magazineContainer = document.querySelector('.magazine-container');
+        const magazineItems = document.querySelectorAll('.magazine-item');
+        let currentIndex = 0;
+
+        // تغيير الصور تلقائياً كل 5 ثواني
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % magazineItems.length;
+            const translateX = -currentIndex * 320; // 320 = width + margin
+            magazineContainer.style.transform = `translateX(${translateX}px)`;
+        }, 5000);
+
+        // تأثيرات عند التحويم
+        magazineItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.05)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+            item.addEventListener('click', () => {
+                window.location.href = 'school-magazine.html';
+            });
+        });
+    });
+</script>
+<audio id="background-audio" autoplay loop>
+    <source src="rel.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+</audio>
+<script>
+    // إظهار الشريط مباشرة
+    document.getElementById('ticker').style.display = 'block';
+</script>
     <script>
         // إظهار الشريط مباشرة
         document.getElementById('ticker').style.display = 'block';
