@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج اختبارات الفصل الثالث | المدرسة الابتدائية العقيد لطفي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .exam-header {
+            background: linear-gradient(135deg, #2196f3, #0d47a1);
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: 25px;
+            margin: 2.5rem 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exam-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,160L48,160C96,160,192,160,288,160C384,160,480,160,576,160C672,160,768,160,864,160C960,160,1056,160,1152,160C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            z-index: 0;
+        }
+
+        .exam-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .exam-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #43a047;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(67, 160, 71, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            transform: scale(1.15);
+            background: #388e3c;
+        }
+
+        .exam-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin: 3rem 0;
+            transition: transform 0.3s ease;
+        }
+
+        .exam-table:hover {
+            transform: translateY(-5px);
+        }
+
+        .exam-table th {
+            background: linear-gradient(135deg, #81c784, #43a047);
+            color: #1a237e;
+            font-weight: 600;
+            padding: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .exam-table tr {
+            transition: background-color 0.3s ease;
+        }
+
+        .exam-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .exam-table tr:hover {
+            background: #f0f7ff;
+        }
+
+        .exam-table td {
+            font-size: 1.2rem;
+            padding: 1.5rem;
+            vertical-align: middle;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #81c784, #43a047);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(67, 160, 71, 0.3);
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .note-box::before {
+            content: 'ملاحظة مهمة';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4caf50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .note-box p {
+            font-style: italic;
+            color: #333;
+            line-height: 1.8;
+            margin-top: 1.5rem;
+        }
+
+        .date-stamp {
+            text-align: left;
+            color: #666;
+            font-size: 1rem;
+            margin-top: 3rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='index.html'">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <div class="exam-header">
+        <h1>برنامج اختبارات الفصل الثالث</h1>
+        <p>مديرية التربية لولاية أولاد جلال<br>
+           المدرسة الابتدائية العقيد لطفي<br>
+           السنة الدراسية: 2024/2025</p>
+    </div>
+
+    <div class="exam-table">
+        <div class="section-title">السنة الخامسة</div>
+        <table>
+            <tr>
+                <th>اليوم</th>
+                <th>الفترة الصباحية</th>
+                <th>الفترة المسائية</th>
+            </tr>
+            <tr>
+                <td>الأحد 18 ماي</td>
+                <td>تربية إسلامية - لغة عربية</td>
+                <td>تربية بدنية</td>
+            </tr>
+            <tr>
+                <td>الإثنين 19 ماي</td>
+                <td>تربية علمية وتكنولوجية</td>
+                <td>تربية مدنية</td>
+            </tr>
+            <tr>
+                <td>الثلاثاء 20 ماي</td>
+                <td>رياضيات</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>الأربعاء 21 ماي</td>
+                <td>تاريخ وجغرافيا - لغة إنجليزية</td>
+                <td>تربية موسيقية</td>
+            </tr>
+            <tr>
+                <td>الخميس 22 ماي</td>
+                <td>لغة فرنسية + تربية فنية</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="exam-table">
+        <div class="section-title">السنة الرابعة</div>
+        <table>
+            <tr>
+                <th>اليوم</th>
+                <th>الفترة الصباحية</th>
+                <th>الفترة المسائية</th>
+            </tr>
+            <tr>
+                <td>الأحد 18 ماي</td>
+                <td>لغة عربية</td>
+                <td>تربية إسلامية</td>
+            </tr>
+            <tr>
+                <td>الإثنين 19 ماي</td>
+                <td>رياضيات</td>
+                <td>لغة فرنسية</td>
+            </tr>
+            <tr>
+                <td>الثلاثاء 20 ماي</td>
+                <td>لغة إنجليزية - تربية علمية وتكنولوجية</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>الأربعاء 21 ماي</td>
+                <td>تاريخ وجغرافيا</td>
+                <td>تربية موسيقية</td>
+            </tr>
+            <tr>
+                <td>الخميس 22 ماي</td>
+                <td>تربية مدنية</td>
+                <td>ت. فنية</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="exam-table">
+        <div class="section-title">السنة الثالثة</div>
+        <table>
+            <tr>
+                <th>اليوم</th>
+                <th>الفترة الصباحية</th>
+                <th>الفترة المسائية</th>
+            </tr>
+            <tr>
+                <td>الأحد 18 ماي</td>
+                <td>لغة عربية</td>
+                <td>لغة فرنسية</td>
+            </tr>
+            <tr>
+                <td>الإثنين 19 ماي</td>
+                <td>تربية علمية - لغة إنجليزية</td>
+                <td>تربية موسيقية</td>
+            </tr>
+            <tr>
+                <td>الثلاثاء 20 ماي</td>
+                <td>رياضيات</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>الأربعاء 21 ماي</td>
+                <td>تربية إسلامية</td>
+                <td>تربية فنية</td>
+            </tr>
+            <tr>
+                <td>الخميس 22 ماي</td>
+                <td>تاريخ وجغرافيا</td>
+                <td>ت. مدنية</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="exam-table">
+        <div class="section-title">السنة الأولى والثانية</div>
+        <table>
+            <tr>
+                <th>اليوم</th>
+                <th>الفترة الصباحية</th>
+                <th>الفترة المسائية</th>
+            </tr>
+            <tr>
+                <td>الأحد 18 ماي</td>
+                <td>لغة عربية</td>
+                <td>تربية فنية</td>
+            </tr>
+            <tr>
+                <td>الإثنين 19 ماي</td>
+                <td>رياضيات</td>
+                <td>تربية موسيقية</td>
+            </tr>
+            <tr>
+                <td>الثلاثاء 20 ماي</td>
+                <td>تربية إسلامية</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="note-box">
+        <p>
+            ملاحظة: بالنسبة لاختبارات التربية البدنية تُجرى في حصصها العادية لجميع الأقسام.<br>
+            - الدراسة عادية خلال فترة الاختبارات.
+        </p>
+    </div>
+
+    <p class="date-stamp">أولاد جلال في: 2025/05/08</p>
+</body>
+</html>

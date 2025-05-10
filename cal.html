@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزنامة التقييمات اليومية</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Amiri', serif;
+            margin: 30px;
+            line-height: 1.8;
+            background: #ffffff; /* Solid white background for better image capture */
+            color: #1a1a1a;
+        }
+        h1, h2, h3 {
+            color: #ffffff; /* White text for header */
+            text-align: center;
+            margin: 10px 0;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: #1a1a1a; /* Black background for header */
+            padding: 30px;
+            border-radius: 20px;
+            color: #ffffff; /* White text */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .header p {
+            margin: 8px 0;
+            font-size: 1.3em;
+            font-weight: 400;
+            color: #ffffff; /* White text for paragraphs */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 1.1em; /* Larger font for better readability in images */
+        }
+        th {
+            background: linear-gradient(to bottom, #003087, #005f73);
+            color: white;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+        td {
+            background-color: #ffffff; /* Solid white for clarity */
+            color: #1a1a1a;
+        }
+        tr:hover td {
+            background-color: #e0f2fe;
+            transform: scale(1.01);
+        }
+        .section-title {
+            background: linear-gradient(45deg, #d00000, #f48c06);
+            color: white;
+            padding: 18px;
+            margin: 30px 0 20px;
+            text-align: right;
+            font-weight: bold;
+            border-radius: 12px;
+            font-size: 1.5em;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .section-title:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .section-title.second-year {
+            background: linear-gradient(45deg, #ffba08, #f48c06);
+            color: #1a1a1a;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+        .ملاحظة {
+            text-align: right;
+            color: #dc2626; /* Bright red for visibility */
+            font-weight: 600;
+            font-size: 1.2em; /* Slightly larger for emphasis */
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb; /* Subtle off-white for contrast */
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            table, th, td {
+                font-size: 0.95em;
+                padding: 12px;
+            }
+            .section-title {
+                font-size: 1.3em;
+                padding: 12px;
+            }
+            .header {
+                padding: 20px;
+            }
+            .ملاحظة {
+                font-size: 1.05em;
+            }
+        }
+        .home-button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .home-button {
+            font-size: 24px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .home-button:hover {
+            color: #005f73;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div class="home-button-container">
+        <a href="index.html" class="home-button">
+            <i class="fas fa-home"></i>
+        </a>
+    </div>
+    <div class="header">
+        <h2>الجمهورية الجزائرية الديمقراطية الشعبية</h2>
+        <p>وزارة التربية الوطنية</p>
+        <h3>مديرية التربية لولاية أولاد جلال</h3>
+        <p>المقاطعة التفتيشية: أولاد جلال (3)</p>
+        <h1>رزنامة التقييمات اليومية الكتابية المشتركة لامتحانات تقييم مكتسبات الأطوار الثلاثة من التعليم الابتدائي</h1>
+        <p>للسنة الدراسية: 2024/2025</p>
+        <p>المرجع: - المنشور رقم: 298 / و. ت. و / م. ع. ت / المؤرخ في 30 ديسمبر 2024</p>
+        <p>- المنشور رقم: 40 / و. ت. و / م. ع. ت / المؤرخ في 19 فيفري 2025</p>
+    </div>
+
+    <div class="section-title">1- السنة الخامسة ابتدائي</div>
+    <table>
+        <thead>
+            <tr>
+                <th>الرقم</th>
+                <th>المادة</th>
+                <th>موضوع التقييم</th>
+                <th>تاريخ الإجراء</th>
+                <th>التوقيت</th>
+                <th>مدة التقييم</th>
+                <th class="ملاحظة">ملاحظة</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>اللغة العربية</td>
+                <td>فهم المكتوب</td>
+                <td>الأحد 11 ماي 2025</td>
+                <td>من: 08:00 إلى 08:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة">استراحة مدتها 15 د بين تقييمي اللغة العربية</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>اللغة العربية</td>
+                <td>الإنتاج الكتابي</td>
+                <td>الأحد 11 ماي 2025</td>
+                <td>من: 09:00 إلى 09:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة"></td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>التربية الإسلامية</td>
+                <td>التربية الإسلامية</td>
+                <td>الأحد 11 ماي 2025</td>
+                <td>من: 13:00 إلى 13:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة">استراحة مدتها 15 د بين التقييمين</td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>التاريخ</td>
+                <td>التاريخ</td>
+                <td>الأحد 11 ماي 2025</td>
+                <td>من: 14:00 إلى 14:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة"></td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>الرياضيات</td>
+                <td>الرياضيات</td>
+                <td>الإثنين 12 ماي 2025</td>
+                <td>من: 08:00 إلى 09:30</td>
+                <td>1 سا 30 د</td>
+                <td class="ملاحظة">دون استراحة</td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>اللغة الفرنسية</td>
+                <td>فهم المكتوب</td>
+                <td>الإثنين 12 ماي 2025</td>
+                <td>من: 13:00 إلى 13:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة">استراحة مدتها 15 د بين تقييمي اللغة الفرنسية</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>اللغة الفرنسية</td>
+                <td>الإنتاج الكتابي</td>
+                <td>الإثنين 12 ماي 2025</td>
+                <td>من: 14:00 إلى 14:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة"></td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>اللغة الإنجليزية</td>
+                <td>فهم المكتوب</td>
+                <td>الثلاثاء 13 ماي 2025</td>
+                <td>من: 08:00 إلى 08:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة">استراحة مدتها 15 د بين تقييمي اللغة الإنجليزية</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>اللغة الإنجليزية</td>
+                <td>الإنتاج الكتابي</td>
+                <td>الثلاثاء 13 ماي 2025</td>
+                <td>من: 09:00 إلى 09:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section-title">2- السنة الرابعة ابتدائي</div>
+    <table>
+        <thead>
+            <tr>
+                <th>الرقم</th>
+                <th>المادة</th>
+                <th>موضوع التقييم</th>
+                <th>تاريخ الإجراء</th>
+                <th>التوقيت</th>
+                <th>مدة التقييم</th>
+                <th class="ملاحظة">ملاحظة</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>اللغة العربية</td>
+                <td>فهم المكتوب</td>
+                <td>الأحد 11 ماي 2025</td>
+                <td>من: 08:00 إلى 08:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة">استراحة مدتها 15 د بين تقييمي اللغة العربية</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>اللغة العربية</td>
+                <td>الإنتاج الكتابي</td>
+                <td>الأحد 11 ماي 2025</td>
+                <td>من: 09:00 إلى 09:45</td>
+                <td>45 د</td>
+                <td class="ملاحظة"></td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>الرياضيات</td>
+                <td>الرياضيات</td>
+                <td>الإثنين 12 ماي 2025</td>
+                <td>من: 08:00 إلى 09:30</td>
+                <td>1 سا 30 د</td>
+                <td class="ملاحظة">دون استراحة</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section-title second-year">3- السنة الثانية ابتدائي</div>
+    <table>
+        <thead>
+            <tr>
+                <th>الرقم</th>
+                <th>المادة</th>
+                <th>موضوع التقييم</th>
+                <th>تاريخ الإجراء</th>
+                <th>التوقيت</th>
+                <th>مدة التقييم</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>اللغة العربية</td>
+                <td>فهم المكتوب</td>
+                <td>الأحد 11 ماي 2025</td>
+                <td>ابتداء من: 08:00</td>
+                <td>عند انتهاء آخر تلميذ من الإجابة</td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>الرياضيات</td>
+                <td>الرياضيات</td>
+                <td>الإثنين 12 ماي 2025</td>
+                <td>ابتداء من: 08:00</td>
+                <td>عند انتهاء آخر تلميذ من الإجابة</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
